@@ -114,17 +114,10 @@ double Calculations(std::string& str) {
                 ops.push(result);
             }
         }
-        else {
-            std::cerr << "Неизвестный символ: " << str[i] << std::endl;
-            exit(1);
-        }
     }
 
     if (ops.size() == 1) {
         return ops.top();
-    }
-    else {
-        std::cerr << "Неверное расположение операторов!" << std::endl;
     }
 }
 

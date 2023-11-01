@@ -1,28 +1,20 @@
 ﻿#include <iostream>
 #include <vector>
 
-// Функция для определения количества множителей в числе n
-int theNumberOfDividers(int n, int Divider) {
-    int count = 0;
-    while (n % Divider == 0) {
-        n /= Divider;
-        count++;
-    }
-    return count;
-}
-
 // Функция для вывода чисел, удовлетворяющих условию
 void findNumbers(int x) {
     std::vector<int> result;
 
-    for (int i = 1; i <= x; i++) {
-        int number = i;
-        int count3 = theNumberOfDividers(number, 3);
-        int count5 = theNumberOfDividers(number, 5);
-        int count7 = theNumberOfDividers(number, 7);
-
-        if ((count3 >= 0 || count5 >= 0 || count7 >= 0) && (pow(3, count3) * pow(5, count5) * pow(7, count7)) == i) {
-            result.push_back(i);
+    for (int k = 0; k <= 10; k++) { // Пусть K, L, M могут быть от 0 до 10
+        for (int l = 0; l <= 10; l++) {
+            for (int m = 0; m <= 10; m++) {
+                if (pow(3, k) * pow(5, l) * pow(7, m) <= x) {
+                    result.push_back(pow(3, k) * pow(5, l) * pow(7, m));
+                }
+                else {
+                    break;
+                }
+            }
         }
     }
 
